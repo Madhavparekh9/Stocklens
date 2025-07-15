@@ -1,0 +1,422 @@
+/* StockLens Dashboard Styles */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main container layout */
+.dash-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Left panel - Controls */
+.left-panel {
+    width: 350px;
+    background-color: #ffffff;
+    border-right: 2px solid #e9ecef;
+    padding: 30px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+}
+
+/* Right panel - Charts */
+.right-panel {
+    flex: 1;
+    width: calc(100% - 350px);
+    margin-left: 350px;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+/* Dashboard title */
+.dashboard-title {
+    color: #000000 ;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* Input groups */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #000000 ;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Ticker input */
+.ticker-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.ticker-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    background-color: #fafbfc;
+}
+
+.ticker-input::placeholder {
+    color: #95a5a6;
+    text-transform: none;
+    font-weight: normal;
+}
+
+/* Date picker container */
+.date-picker-container {
+    width: 100%;
+}
+
+.date-picker-container .DateRangePickerInput {
+    width: 100%;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.date-picker-container .DateRangePickerInput:hover,
+.date-picker-container .DateRangePickerInput:focus-within {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.date-picker-container .DateInput {
+    width: 50%;
+    padding: 0;
+}
+
+.date-picker-container .DateInput_input {
+    padding: 12px 15px;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    color: #34495e;
+    font-weight: 500;
+}
+
+.date-picker-container .DateInput_input::placeholder {
+    color: #95a5a6;
+}
+
+.date-picker-container .DateRangePickerInput_arrow {
+    color: #7f8c8d;
+}
+
+.date-picker-container .DateRangePickerInput_clearDates {
+    color: #e74c3c;
+    padding: 8px;
+}
+
+/* Submit button */
+.submit-button {
+    width: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* Stock info display */
+.stock-info {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stock-info h4 {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+    border-radius: 6px;
+    letter-spacing: 1px;
+}
+
+.stock-info h5 {
+    color: #000000 ;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.stock-info p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #000000 ;
+    line-height: 1.5;
+}
+
+.stock-info hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #bdc3c7, transparent);
+    margin: 15px 0;
+}
+
+/* Error messages */
+.error-message {
+    background-color: #fdf2f2;
+    color: #e74c3c;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #e74c3c;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Charts container */
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chart-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+}
+
+.chart-container:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Copyright section */
+.copyright-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+/* Plotly customizations */
+.js-plotly-plot .plotly .modebar {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 6px !important;
+    padding: 5px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.js-plotly-plot .plotly .modebar-btn {
+    color: #34495e !important;
+    transition: all 0.2s ease !important;
+}
+
+.js-plotly-plot .plotly .modebar-btn:hover {
+    background-color: #3498db !important;
+    color: white !important;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .left-panel {
+        width: 300px;
+    }
+    
+    .right-panel {
+        margin-left: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dash-container {
+        flex-direction: column;
+    }
+    
+    .left-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+    
+    .right-panel {
+        margin-left: 0;
+        padding: 15px;
+    }
+    
+    .dashboard-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .chart-container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-panel {
+        padding: 15px;
+    }
+    
+    .dashboard-title {
+        font-size: 20px;
+    }
+    
+    .submit-button {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+    
+    .ticker-input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .stock-info {
+        padding: 15px;
+    }
+    
+    .stock-info h4 {
+        font-size: 18px;
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #000000 ;
+    }
+    
+    .left-panel {
+        background-color: #2d2d30;
+        border-right-color: #404040;
+    }
+    
+    .right-panel {
+        background-color: #1a1a1a;
+    }
+    
+    .chart-container {
+        background-color: #2d2d30;
+        border-color: #404040;
+    }
+    
+    .stock-info {
+        background-color: #2d2d30;
+        border-color: #404040;
+    }
+    
+    .ticker-input {
+        background-color: #404040;
+        border-color: #555;
+        color: #000000 ;
+    }
+    
+    .ticker-input:focus {
+        border-color: #3498db;
+        background-color: #4a4a4a;
+    }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chart-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading states */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+.loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e9ecef;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
