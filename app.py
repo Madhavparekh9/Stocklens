@@ -678,4 +678,4 @@ def sync_chart_zoom(sma_relayout, ema_relayout, stoch_relayout, sma_fig, ema_fig
     return sma_fig_copy, ema_fig_copy, stoch_fig_copy
 
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port=8050)
+    app.run(debug=True, host='0.0.0.0', port=8000)
